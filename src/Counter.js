@@ -1,40 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-class Counter extends React.Component {
-  constructor(props) {
-    super(props);
+const Counter = () => {
+  const [count, setCount] = useState(5);
 
-    this.state = { count: 5 };
-    this.handleDecrement = this.handleDecrement.bind(this);
-    this.handleIncrement = this.handleIncrement.bind(this);
-  }
+  const handleDecrement = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
 
-  handleDecrement() {
-    this.setState((curState) => {
-      return { count: curState.count - 1 };
-    });
-  }
+  const handleIncrement = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
 
-  handleIncrement() {
-    this.setState((curState) => {
-      return { count: curState.count + 1 };
-    });
-  }
+  const date = new Date("June 21, 2027");
+  date.setDate(date.getDate() + count);
 
-  render() {
-    const date = new Date("june 21 2027");
-    date.setDate(date.getDate() + this.state.count);
-
-    return (
-      <div>
-        <button onClick={this.handleDecrement}>-</button>
-        <span>
-          {date.toDateString()} [{this.state.count}]
-        </span>
-        <button onClick={this.handleIncrement}>+</button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <button onClick={handleDecrement}>-</button>
+      <span>
+        {date.toDateString()} [{count}]
+      </span>
+      <button onClick={handleIncrement}>+</button>
+    </div>
+  );
+};
 
 export default Counter;
