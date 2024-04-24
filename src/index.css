@@ -25,9 +25,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 112rem;
+  width: 100%; /* Adjusted width */
+  max-width: 112rem; /* Added max-width */
   gap: 4rem;
-  padding: 6rem 0;
+  padding: 6rem 2rem; /* Adjusted padding */
   border: 2px solid #222;
   outline: 2px solid #222;
   outline-offset: 1.2rem;
@@ -52,7 +53,8 @@ input {
   background-color: #f0d2ce;
   padding: 1.6rem 3.2rem;
   border: none;
-  width: 32rem;
+  width: 100%; /* Adjusted width */
+  max-width: 32rem; /* Added max-width */
 }
 
 input:focus {
@@ -63,6 +65,8 @@ input:focus {
   list-style: none;
   display: flex;
   gap: 2.4rem;
+  flex-wrap: wrap; /* Added flex-wrap */
+  justify-content: center; /* Added justify-content */
 }
 
 .day {
@@ -88,5 +92,11 @@ input:focus {
 
 .loader {
   font-size: 2.4rem;
-  font-weight: 700;
+}
+
+/* Media queries for responsive design */
+@media only screen and (max-width: 768px) {
+  .app {
+    padding: 4rem 1rem; /* Adjusted padding */
+  }
 }
